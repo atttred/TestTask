@@ -36,7 +36,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Account>()
             .HasOne(a => a.Incident)
             .WithMany(i => i.Accounts)
-            .HasForeignKey(a => a.IncidentId)
+            .HasForeignKey(a => a.IncidentName)
             .OnDelete(DeleteBehavior.Cascade);
 
         //Contact
