@@ -19,13 +19,12 @@ This is a simple API for managing incidents, accounts, and contacts using **ASP.
 
 - Create incidents, accounts, and contacts.
 - **Validations**:
-  - Account cannot exist without a contact.
+  - Contact cannot exist without an account.
   - Incident cannot be created without an account.
-- If the contact exists (checked by email), it updates the contact and links it to the account if not linked.
+- If the contact exists (checked by email), it updates the contact, but cannot be linked to another account.
 - Otherwise:
   - Creates a new contact.
   - Links it to the account.
-  - Associates the account with the incident.
 
 ## Tools
 

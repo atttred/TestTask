@@ -37,6 +37,7 @@ public class AppDbContext : DbContext
             .HasOne(a => a.Incident)
             .WithMany(i => i.Accounts)
             .HasForeignKey(a => a.IncidentName)
+            .IsRequired(false)
             .OnDelete(DeleteBehavior.Cascade);
 
         //Contact
