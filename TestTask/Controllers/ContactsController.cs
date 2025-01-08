@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TestTask.Data;
 using TestTask.DTO;
@@ -35,13 +34,13 @@ public class ContactsController : ControllerBase
 
         if (contact != null)
         {
-            contact.FirstName = contactDto.FirstName;
-            contact.LastName = contactDto.LastName;
-
             if (contact.AccountId != account.Id)
             {
                 return Conflict(contact.Email + " already exists in another account.");
             }
+
+            contact.FirstName = contactDto.FirstName;
+            contact.LastName = contactDto.LastName;
 
             _context.Contacts.Update(contact);
         }
