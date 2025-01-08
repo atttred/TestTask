@@ -53,9 +53,13 @@ public class IncidentsController : ControllerBase
 
             await _context.Contacts.AddAsync(contact);
         }
-        else
+        else if (contact.FirstName != incidentDto.ContactFirstName || contact.LastName != incidentDto.ContactLastName)
         {
-            return Conflict("Contact already exists.");
+            return Conflict("Contact details do not match.");
+        }
+        else if (contact.AccountId != account.Id)
+        {
+            return Conflict("Contact is linked to a different account.");
         }
 
         var incident = new Incident
