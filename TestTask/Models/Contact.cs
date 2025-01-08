@@ -1,4 +1,5 @@
-﻿namespace TestTask.Models;
+﻿using System.Text.Json.Serialization;
+namespace TestTask.Models;
 
 public class Contact
 {
@@ -8,5 +9,6 @@ public class Contact
     public string Email { get; set; }
     public int AccountId { get; set; }
 
+    [JsonIgnore]
     public Account Account { get; set; }
 }
